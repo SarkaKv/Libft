@@ -11,25 +11,27 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	whereisend;
 	size_t	starti;
-	char	*meow;
+	char	*newstr;
 
-	whereisend = start + len;
 	starti = 0;
-	meow = (char *)malloc(sizeof(char) * len + 1);
-	if (!meow)
+	if(!s)
+		return(NULL);
+	if(start >= ft_strlen(s))
+		return(ft_strdup(""));
+	if (len > ft_strlen(s) - start)
+    		len = ft_strlen(s) - start;
+	newstr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!newstr)
 		return (NULL);
-	while (start < whereisend && starti < len)
+	while (s[start + starti] != '\0' && starti < len)
 	{
-		meow[starti] = s[start];
-		start++;
+		newstr[starti] = s[start + starti];
 		starti++;
 	}
-	meow[starti] = '\0';
-	return (meow);
+	newstr[starti] = '\0';
+	return (newstr);
 }
