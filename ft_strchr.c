@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-// #include <stdio.h>
-
 char	*ft_strchr(const char *str, int c)
 {
 	int	ok;
@@ -27,12 +25,9 @@ char	*ft_strchr(const char *str, int c)
 		}
 		ok++;
 	}
+	if (c == '\0')
+	{
+		return ((char *)&str[ok]);
+	}
 	return (NULL);
 }
-//  int	main(void)
-// {
-//  	char	*ok;
-
-//  	ok = ft_strchr("Sarinka uz neni dumb :]", '\0');
-//  	printf("%s", ok);
-// 	}
