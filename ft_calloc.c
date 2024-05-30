@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+// #include <stdlib.h>
 
 void	*ft_calloc(size_t nitems, size_t size)
 {
@@ -22,6 +22,6 @@ void	*ft_calloc(size_t nitems, size_t size)
 	ptr = (void *)malloc(size * nitems);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, nitems);
+	ft_bzero(ptr, nitems * size);
 	return (ptr);
 }
