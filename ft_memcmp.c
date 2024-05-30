@@ -17,12 +17,13 @@ int	ft_memcmp(const void *str1, const void *str2, size_t n)
 	size_t	heh;
 
 	heh = 0;
-	if (!str1 || !str2 || !n)
-		return (0);
-	while (heh < n && *(const char *)(str1 + heh) == *(const char *)(str2
-			+ heh))
+	while (heh < n)
 	{
+			if(*(unsigned char *)(str1 + heh) != *(unsigned char *)(str2
+			+ heh))
+				return(*(unsigned char *)(str1 + heh) - *(unsigned char *)(str2
+			+ heh));
 		heh++;
 	}
-	return (*(const char *)(str1 + heh) - *(const char *)(str2 + heh));
+	return (0);
 }
