@@ -22,11 +22,6 @@ static char	*ft_strcpy(char *dest, char *src, size_t n)
 		dest[copy] = src[copy];
 		copy++;
 	}
-	while (copy < n)
-	{
-		dest[copy] = '\0';
-		copy++;
-	}
 	return (dest);
 }
 char	*ft_strtrim(char const *s1, char const *set)
