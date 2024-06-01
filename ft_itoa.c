@@ -11,64 +11,46 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-
-static int	getlenghtofn(int ok)
+static int getlenghtofn(int ok)
 {
-	int	lenghtofthenb;
+    int lenghtofthenb;
 
-	lenghtofthenb = 0;
-	if (ok < 0)
-	{
-		lenghtofthenb++;
-	}
-	while (ok != 0)
-	{
-		ok = ok / 10;
-		lenghtofthenb++;
-	}
-	return (lenghtofthenb);
+    lenghtofthenb = 0;
+    if (ok <= 0)
+    {
+        lenghtofthenb++;
+    }
+    while (ok != 0)
+    {
+        ok = ok / 10;
+        lenghtofthenb++;
+    }
+    return (lenghtofthenb);
 }
 
-char	*ft_itoa(int n)
+char *ft_itoa(int n)
 {
-	char	*thenumber;
-	size_t	lenghtofthenb;
-	int		tempn;
+    char *thenumber;
+    size_t lenghtofthenb;
+    unsigned int tempn;
 
-	lenghtofthenb = getlenghtofn(n);
-	tempn = n;
-	thenumber = (char *)malloc(sizeof(char) * lenghtofthenb);
-	if (!thenumber)
-		return (NULL);
-	if (n > 0)
-	{
-		while (lenghtofthenb > 0)
-		{
-			printf("%zu", lenghtofthenb);
-			thenumber[lenghtofthenb] = (n%10) + '0';
-			printf("%s", thenumber);
-			// n = n / 10;
-			lenghtofthenb--;
-			// tempn = n;
-		}
-	}
-	// if (n < 0)
-	// {
-	// 	thenumber[0] = '-';
-	// 	n = n * -1;
-	// 	while (n > 0)
-	// 	{
-	// 		tempn = tempn % 10;
-	// 		thenumber[lenghtofthenb] = tempn + '0';
-	// 		lenghtofthenb--;
-	// 		n = n / 10;
-	// 		tempn = n;
-	// 	}
-	// }
-	return (thenumber);
-}
-int	main(void)
-{
-	ft_itoa(456);
+    lenghtofthenb = getlenghtofn(n);
+    tempn  = (unsigned int)n;
+    thenumber = (char *)malloc(sizeof(char) * (lenghtofthenb + 1));
+    if (!thenumber)
+        return NULL;
+    thenumber[lenghtofthenb] = '\0';
+    if (n < 0)
+    {
+        thenumber[0] = '-';
+        tempn = -tempn;
+    }
+    if (n == 0)
+        thenumber[0] = '0';
+    while (tempn > 0)
+    {
+        thenumber[--lenghtofthenb] = (tempn % 10) + '0';
+        tempn = tempn / 10;
+    }
+    return thenumber;
 }
