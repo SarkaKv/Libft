@@ -6,7 +6,7 @@
 /*   By: skvackov <skvackov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 10:34:29 by skvackov          #+#    #+#             */
-/*   Updated: 2024/05/29 13:56:37 by skvackov         ###   ########.fr       */
+/*   Updated: 2024/05/30 11:22:54 by skvackov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
-		return;
+		return ;
 	}
 	if (n < 0)
 	{
@@ -32,3 +32,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(n % 10, fd);
 	}
 }
+// int main(void)
+// {
+// 	ft_putnbr_fd(-2147483648, 1);
+// }

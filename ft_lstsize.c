@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skvackov <skvackov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 14:35:33 by skvackov          #+#    #+#             */
-/*   Updated: 2024/05/31 09:41:18 by skvackov         ###   ########.fr       */
+/*   Created: 2024/05/30 13:24:20 by skvackov          #+#    #+#             */
+/*   Updated: 2024/05/30 15:26:38 by skvackov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	ok;
+	t_list	*ok;
+	int		notok;
 
-	ok = 0;
-	if (!dest && !src)
-		return (0);
-	while (ok < n)
+	ok = lst;
+	notok = 0;
+	while (ok->next != NULL)
 	{
-		*(unsigned char *)(dest + ok) = *(unsigned char *)(src + ok);
-		ok++;
+		ok = ok->next;
+		notok++;
 	}
-	return (dest);
+	return (notok);
 }

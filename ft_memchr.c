@@ -6,7 +6,7 @@
 /*   By: skvackov <skvackov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:48:53 by skvackov          #+#    #+#             */
-/*   Updated: 2024/05/27 13:40:53 by skvackov         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:23:33 by skvackov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	size_t	hehe;
 
 	hehe = 0;
-	if (!str || !c)
-		return (NULL);
 	while (hehe < n)
 	{
-		if (*(unsigned char *)(str + hehe) == c)
+		if (*(unsigned char *)(str + hehe) == (unsigned char)c)
 			return ((unsigned char *)(str + hehe));
 		hehe++;
 	}
+	if (c == '\0')
+		return ((unsigned char *)(str + hehe));
 	return (NULL);
 }

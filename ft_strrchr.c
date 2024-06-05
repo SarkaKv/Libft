@@ -6,7 +6,7 @@
 /*   By: skvackov <skvackov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:51:52 by skvackov          #+#    #+#             */
-/*   Updated: 2024/05/29 12:11:59 by skvackov         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:23:50 by skvackov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,8 @@ char	*ft_strrchr(const char *str, int c)
 {
 	int	ok;
 
-	ok = 0;
-	if (!str)
-		return (NULL);
-	while (str[ok] != '\0')
-	{
-		ok++;
-	}
-	while (ok > 0)
+	ok = ft_strlen(str);
+	while (ok >= 0)
 	{
 		if (str[ok] == c)
 		{
@@ -32,5 +26,7 @@ char	*ft_strrchr(const char *str, int c)
 		}
 		ok--;
 	}
+	if (c == '\0')
+		return ((((char *)&str[ok])));
 	return (NULL);
 }

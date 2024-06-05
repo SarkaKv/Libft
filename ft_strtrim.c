@@ -6,13 +6,13 @@
 /*   By: skvackov <skvackov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 12:08:37 by skvackov          #+#    #+#             */
-/*   Updated: 2024/05/27 13:47:18 by skvackov         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:37:14 by skvackov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strcpy(char *dest, char *src, size_t n)
+static char	*ft_strcpy(char *dest, char const *src, size_t n)
 {
 	size_t	copy;
 
@@ -24,6 +24,7 @@ static char	*ft_strcpy(char *dest, char *src, size_t n)
 	}
 	return (dest);
 }
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*new;
@@ -36,18 +37,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1 || !set)
 		return (NULL);
 	while (ft_strchr(set, s1[findstart]) != NULL && s1[findstart])
-	{
 		findstart++;
-	}
 	while (ft_strchr(set, s1[findend - 1]) != NULL && findend > findstart)
-	{
 		findend--;
-	}
 	newlenght = findend - findstart;
 	new = (char *)malloc(sizeof(char) * newlenght + 1);
 	if (!new)
 		return (NULL);
-	ft_strcpy(new, s1[findstart], newlenght);
+	ft_strcpy(new, s1 + findstart, newlenght);
 	new[newlenght] = '\0';
 	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: skvackov <skvackov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:08:34 by skvackov          #+#    #+#             */
-/*   Updated: 2024/05/29 12:20:12 by skvackov         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:24:12 by skvackov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	int	ok;
+	int		ok;
+	char	oki;
 
 	ok = 0;
+	oki = c;
+	if (oki == '\0')
+		return ((char *)&str[ft_strlen(str)]);
+	if (!ft_isascii(oki))
+		return (NULL);
 	while (str[ok] != '\0')
 	{
 		if (str[ok] == c)
@@ -25,9 +31,12 @@ char	*ft_strchr(const char *str, int c)
 		}
 		ok++;
 	}
-	if (c == '\0')
-	{
-		return ((char *)&str[ok]);
-	}
 	return (NULL);
 }
+//  int	main(void)
+// {
+//  	char	*ok;
+
+//  	ok = ft_strchr("Sarinka uz neni dumb :]", '\0');
+//  	printf("%s", ok);
+// 	}
