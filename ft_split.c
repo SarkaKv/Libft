@@ -6,13 +6,13 @@
 /*   By: skvackov <skvackov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 14:43:29 by skvackov          #+#    #+#             */
-/*   Updated: 2024/06/05 16:46:21 by skvackov         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:59:55 by skvackov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	word_count(char *s, char splitter)
+static int	word_count(char const *s, char splitter)
 {
 	int	len;
 	int	oki;
@@ -37,7 +37,7 @@ static int	word_count(char *s, char splitter)
 	return (len);
 }
 
-static void	do_magic(char *s, char splitter, int *len, int *oki)
+static void	do_magic(char const *s, char splitter, int *len, int *oki)
 {
 	while (s[*oki] == splitter && s[*oki] != '\0')
 		(*oki)++;
@@ -48,7 +48,7 @@ static void	do_magic(char *s, char splitter, int *len, int *oki)
 	}
 }
 
-char	**ft_split(char *s, char splitter)
+char	**ft_split(char const *s, char splitter)
 {
 	int		whereinar;
 	char	**helou;
