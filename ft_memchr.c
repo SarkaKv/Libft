@@ -6,7 +6,7 @@
 /*   By: skvackov <skvackov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:48:53 by skvackov          #+#    #+#             */
-/*   Updated: 2024/05/30 15:23:33 by skvackov         ###   ########.fr       */
+/*   Updated: 2024/06/06 15:49:05 by skvackov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	*ft_memchr(const void *str, int c, size_t n)
 		hehe++;
 	}
 	if (c == '\0')
-		return ((unsigned char *)(str + hehe));
+		return (NULL);
 	return (NULL);
 }

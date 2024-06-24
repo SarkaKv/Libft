@@ -6,7 +6,7 @@
 /*   By: skvackov <skvackov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:08:34 by skvackov          #+#    #+#             */
-/*   Updated: 2024/05/30 15:24:12 by skvackov         ###   ########.fr       */
+/*   Updated: 2024/06/06 15:22:04 by skvackov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strchr(const char *str, int c)
 		return (NULL);
 	while (str[ok] != '\0')
 	{
-		if (str[ok] == c)
+		if (str[ok] == oki)
 		{
 			return (((char *)&str[ok]));
 		}
@@ -33,10 +33,3 @@ char	*ft_strchr(const char *str, int c)
 	}
 	return (NULL);
 }
-//  int	main(void)
-// {
-//  	char	*ok;
-
-//  	ok = ft_strchr("Sarinka uz neni dumb :]", '\0');
-//  	printf("%s", ok);
-// 	}
